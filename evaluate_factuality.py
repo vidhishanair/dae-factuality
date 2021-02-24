@@ -90,7 +90,6 @@ def score_example_single_context(decode_text, input_text, model, tokenizer, args
         f_out.write(str(pred_temp[0][0]) + '\t' + str(pred_temp[0][1]) + '\n')
         f_out.write('\n')
 
-    f_out.close()
     preds = preds.reshape(-1, 2)
     preds = softmax(preds)
     preds = preds[:, 1]
@@ -98,6 +97,7 @@ def score_example_single_context(decode_text, input_text, model, tokenizer, args
     score = np.mean(preds)
     f_out.write(str(score)+"\n")
     f_out.write("\n")
+    f_out.close()
     return score
 
 
