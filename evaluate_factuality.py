@@ -96,6 +96,8 @@ def score_example_single_context(decode_text, input_text, model, tokenizer, args
     preds = preds[:, 1]
     preds = preds[:num_dependencies[0]]
     score = np.mean(preds)
+    f_out.write(str(score)+"\n")
+    f_out.write("\n")
     return score
 
 
